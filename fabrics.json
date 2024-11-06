@@ -1,0 +1,4 @@
+{
+    "cotton": { "softness": 8, "breathability": 7, "weight": 5, "season": "all" },
+    "wool": { "softness": 6, "breathability": 4, "weight": 8, "season": "cold" }
+}

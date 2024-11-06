@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comfort Preferences</title>
+</head>
+<body>
+    <h1>  Your Comfort Preferences</h1>
+    <form action="{{ url_for('submit_survey') }}" method="POST">
+        <!-- Basic Comfort Factors -->
+        <label for="softness">Softness (1-10):</label>
+        <input type="number" id="softness" name="softness" min="1" max="10" required><br><br>
+
+        <label for="breathability">Breathability (1-10):</label>
+        <input type="number" id="breathability" name="breathability" min="1" max="10" required><br><br>
+
+        <label for="stretchiness">Stretchiness (1-10):</label>
+        <input type="number" id="stretchiness" name="stretchiness" min="1" max="10" required><br><br>
+
+        <label for="warmth">Warmth (1-10):</label>
+        <input type="number" id="warmth" name="warmth" min="1" max="10" required><br><br>
+
+        <label for="durability">Durability (1-10):</label>
+        <input type="number" id="durability" name="durability" min="1" max="10" required><br><br>
+
+        <!-- Fabric Ranking -->
+        <h3 >Rank Fabrics by Comfort <br> 
+            (1 = Least Comfortable, 5 = Most Comfortable)</h3>
+        <label for="cotton">Cotton:</label>
+        <select id="cotton" name="fabric_cotton" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br><br>
+
+        <label for="linen">Linen:</label>
+        <select id="linen" name="fabric_linen" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br><br>
+
+        <label for="silk">Silk:</label>
+        <select id="silk" name="fabric_silk" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br><br>
+
+        <label for="wool">Wool:</label>
+        <select id="wool" name="fabric_wool" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br><br>
+
+        <label for="polyester">Polyester:</label>
+        <select id="polyester" name="fabric_polyester" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br><br>
+
+        <!-- Other Factors -->
+       <!--<label for="location">Location:</label> -->
+       <!-- <input type="text" id="location" name="location" required><br><br> -->
+
+        <label for="fit_preference">Preferred Fit:</label>
+        <select id="fit_preference" name="fit_preference" required>
+            <option value="loose">Loose</option>
+            <option value="tight">Tight</option>
+            <option value="regular">Regular</option>
+        </select><br><br>
+
+        <label for="sustainability">Importance of Sustainability (1-10):</label>
+        <input type="number" id="sustainability" name="sustainability" min="1" max="10" required><br><br>
+
+        <button type="submit">Submit Preferences</button>
+    </form>
+</body>
+</html>
+

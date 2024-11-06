@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#8EB9EF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .feedback-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 300px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .feedback-form h2 {
+            margin-top: 0;
+            color: #333333;
+        }
+        .feedback-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .feedback-form input[type="text"],
+        .feedback-form input[type="number"],
+        .feedback-form textarea,
+        .feedback-form select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .feedback-form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .feedback-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="feedback-form">
+    <h2>Product Feedback</h2>
+    <form action="/submit-feedback" method="POST">
+        
+        <!-- Select Item Dropdown -->
+        <label for="item">Select Item</label>
+        <select id="item" name="item" required>
+            <option value="">Select an item...</option>
+            <!-- The options will be connected to users account of purchased items, example items -->
+            <option value="item1">Item 1: Black Jacket</option>
+            <option value="item2">Item 2: Red Sweater</option>
+            <option value="item3">Item 3: Black Jeans</option>
+            
+        </select>
+
+        <!-- Product Satisfaction -->
+        <label for="satisfaction">How satisfied are you with the product?</label>
+        <select id="satisfaction" name="satisfaction" required>
+            <option value="">Select one...</option>
+            <option value="very_satisfied">Very Satisfied</option>
+            <option value="satisfied">Satisfied</option>
+            <option value="neutral">Neutral</option>
+            <option value="dissatisfied">Dissatisfied</option>
+            <option value="very_dissatisfied">Very Dissatisfied</option>
+        </select>
+
+        <!-- Comfort Score Accuracy -->
+        <label for="accuracy">How accurate was the comfort score?</label>
+        <input type="number" id="accuracy" name="accuracy" min="1" max="10" placeholder="Rate from 1 to 10" required>
+
+        <!-- Fit Satisfaction -->
+        <label for="fit">Did the item fit as expected?</label>
+        <select id="fit" name="fit" required>
+            <option value="">Select one...</option>
+            <option value="fit_as_expected">Fit as Expected</option>
+            <option value="too_tight">Too Tight</option>
+            <option value="too_loose">Too Loose</option>
+        </select>
+
+        <!-- Additional Comments -->
+        <label for="comments">Additional Comments</label>
+        <textarea id="comments" name="comments" rows="4" placeholder="Share your experience or suggestions..."></textarea>
+
+        
+        <button type="submit">Submit Feedback</button>
+    </form>
+</div>
+
+</body>
+</html>
