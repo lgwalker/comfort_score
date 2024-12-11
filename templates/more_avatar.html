@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Measurements</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #8EB9EF;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .more-measurements-modal {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            margin: 50px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .toggle-unit-btn {
+            padding: 5px 10px;
+            background-color: #8EB9EF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .toggle-unit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .measurement-item {
+            margin-bottom: 15px;
+        }
+
+        .measurement-item label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .measurement-item .value input {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .add-measurement-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .add-measurement-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        let isInches = true;
+
+        function toggleUnits() {
+            const inputs = document.querySelectorAll(".measurement-item .value input");
+            inputs.forEach(input => {
+                const value = parseFloat(input.value) || 0; // Default to 0 if empty
+                if (isInches) {
+                    // Convert inches to cm (1 inch = 2.54 cm)
+                    input.value = (value * 2.54).toFixed(2);
+                    input.placeholder = "in cm";
+                } else {
+                    // Convert cm to inches
+                    input.value = (value / 2.54).toFixed(2);
+                    input.placeholder = "in inches";
+                }
+            });
+            isInches = !isInches;
+        }
+
+        function addMeasurement() {
+            const container = document.getElementById("additional-measurements");
+            const measurementDiv = document.createElement("div");
+            measurementDiv.className = "measurement-item";
+
+            const label = document.createElement("label");
+            label.textContent = "New Measurement";
+
+            const input = document.createElement("input");
+            input.type = "number";
+            input.placeholder = isInches ? "in inches" : "in cm";
+
+            measurementDiv.appendChild(label);
+            measurementDiv.appendChild(input);
+            container.appendChild(measurementDiv);
+        }
+    </script>
+</head>
+<body>
+    <div class="more-measurements-modal">
+        <div class="modal-header">
+            <h2>More Measurements</h2>
+            <button class="toggle-unit-btn" onclick="toggleUnits()">Switch to cm</button>
+        </div>
+
+        <!-- Existing Measurements -->
+        <div class="measurement-item">
+            <label for="waist">Waist</label>
+            <div class="value">
+                <input type="number" id="waist" name="waist" placeholder="in inches">
+            </div>
+        </div>
+
+        <div class="measurement-item">
+            <label for="bust">Bust</label>
+            <div class="value">
+                <input type="number" id="bust" name="bust" placeholder="in inches">
+            </div>
+        </div>
+
+        <div class="measurement-item">
+            <label for="leg-length">Leg Length</label>
+            <div class="value">
+                <input type="number" id="leg-length" name="leg-length" placeholder="in inches">
+            </div>
+        </div>
+
+        <div class="measurement-item">
+            <label for="shoulder-width">Shoulder Width</label>
+            <div class="value">
+                <input type="number" id="shoulder-width" name="shoulder-width" placeholder="in inches">
+            </div>
+        </div>
+
+        <!-- Additional Measurements -->
+        <div id="additional-measurements"></div>
+
+        <button class="add-measurement-btn" onclick="addMeasurement()">+ Add Measurement</button>
+    </div>
+</body>
+</html>

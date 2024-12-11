@@ -17,11 +17,9 @@ def init_db():
                         location TEXT,
                         fit_preference TEXT,
                         sustainability INTEGER,
-                        fabric_cotton INTEGER,
-                        fabric_linen INTEGER,
-                        fabric_silk INTEGER,
-                        fabric_wool INTEGER,
-                        fabric_polyester INTEGER
+                        fabric_first TEXT,
+                        fabric_second TEXT,
+                        fabric_third TEXT
                     )''')
     conn.commit()
     conn.close()
@@ -51,6 +49,18 @@ def avatar():
 @app.route('/comfort-score')
 def score():
     return render_template('comfort_score.html')
+
+@app.route('/more-avatar')
+def more_avatar():
+    return render_template('/more_avatar.html')
+
+@app.route('/to-website')
+def to_website():
+    return render_template('/to_website.html')
+
+@app.route('/setup-pref')
+def setup_pref():
+    return render_template('/setup_pref.html')
 
 @app.route('/submit-survey', methods=['POST'])
 def submit_survey():
